@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             floatingActionButtonTheme: const FloatingActionButtonThemeData(
                 backgroundColor: Colors.redAccent, elevation: 0))*/
       theme: ThemeData.light().copyWith(
-          scaffoldBackgroundColor: Colors.black54,
+          scaffoldBackgroundColor: Color.fromARGB(255, 216, 115, 149),
           appBarTheme: const AppBarTheme(elevation: 0, color: Colors.redAccent),
           floatingActionButtonTheme: const FloatingActionButtonThemeData(
               backgroundColor: Colors.redAccent, elevation: 0)),

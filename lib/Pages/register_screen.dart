@@ -10,6 +10,11 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Registro'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
         body: Container(
             child: SingleChildScrollView(
       child: Column(
@@ -18,10 +23,10 @@ class RegisterScreen extends StatelessWidget {
           CardContainer(
               child: Column(
             children: [
-              SizedBox(height: 10),
-              Text('Crear cuenta',
-                  style: Theme.of(context).textTheme.headline4),
-              SizedBox(height: 30),
+              // SizedBox(height: 10),
+              // Text('Crear cuenta',
+              //    style: Theme.of(context).textTheme.headlineMedium),
+              //  SizedBox(height: 30),
               ChangeNotifierProvider(
                   create: (_) => LoginFormProvider(), child: _LoginForm())
             ],
@@ -34,15 +39,16 @@ class RegisterScreen extends StatelessWidget {
                       Colors.redAccent.withOpacity(0.1)),
                   shape: MaterialStateProperty.all(StadiumBorder())),
               child: Text(
-                '¿Ya tienes una cuenta?',
+                'Ya tengo cuenta',
                 style: TextStyle(fontSize: 18, color: Colors.white),
               )),
           SizedBox(height: 50),
-        ],
+       ],
       ),
     )));
   }
 }
+
 
 class _LoginForm extends StatelessWidget {
   @override
@@ -59,9 +65,9 @@ class _LoginForm extends StatelessWidget {
               autocorrect: false,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecorations.authInputDecoration(
-                  hintText: 'john.doe@gmail.com',
+                  //hintText: 'john.doe@gmail.com',
                   labelText: 'Correo electrónico',
-                  prefixIcon: Icons.alternate_email_rounded),
+                  prefixIcon: Icons.email),//alternate_email_rounded
               onChanged: (value) => loginForm.email = value,
               validator: (value) {
                 String pattern =
@@ -79,7 +85,7 @@ class _LoginForm extends StatelessWidget {
               obscureText: true,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecorations.authInputDecoration(
-                  hintText: '*****',
+                  //hintText: '*****',
                   labelText: 'Contraseña',
                   prefixIcon: Icons.lock_outline),
               onChanged: (value) => loginForm.password = value,
@@ -95,11 +101,11 @@ class _LoginForm extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10)),
                 disabledColor: Colors.grey,
                 elevation: 0,
-                color: Colors.redAccent,
+                color: Colors.purple,
                 child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
                     child: Text(
-                      loginForm.isLoading ? 'Espere' : 'Ingresar',
+                      loginForm.isLoading ? 'Ingresando' : 'Registrarse',
                       style: TextStyle(color: Colors.white),
                     )),
                 onPressed: loginForm.isLoading
